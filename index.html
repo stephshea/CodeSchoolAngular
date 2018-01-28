@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html ng-app="rentals">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Angular Cool Car Rentals</title>
+</head>
+<body ng-controller="RentalsController as rentals">
+    <h1>Angular Cool Car Rentals</h1>
+    <div ng-repeat="product in rentals.products" ng-hide="product.noneAvailable">
+     <!--ng-hide="rentals.product.noneAvailable"    -->
+        <!--scope of controller only inside div-->
+        <h2>{{product.name}}</h1>
+        <h3>{{product.price | currency}}</h2>
+        <!--angular filters use piping |-->
+        <h3>{{product.type}}</h2>
+        <p>{{product.description}}</p>
+        <p><img ng-src="{{product.images}}"/></p>
+        <button ng-show="product.canRent">Rent Car</button>
+        <!--only show if value of the expression is true-->
+    </div>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script> 
+</body>
+</html>
