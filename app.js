@@ -76,5 +76,6 @@
 		},
 		canRent: true,
 		noneAvailable: false
-	}];
+	    }
+	];
 })();
