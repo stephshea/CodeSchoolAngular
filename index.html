@@ -5,23 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Angular Cool Car Rentals</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="RentalsController as rentals">
     <h1>Angular Cool Car Rentals</h1>
-    <div ng-repeat="product in rentals.products" ng-hide="product.noneAvailable">
+
+    
+    <div ng-repeat="product in rentals.products">
      <!--ng-hide="rentals.product.noneAvailable"    -->
         <!--scope of controller only inside div-->
-        <h2>{{product.name}}</h1>
-        <h3>{{product.price | currency}}</h2>
+        <h2 ng-hide="product.noneAvailable">{{product.name}}</h2>
+        <h3 ng-hide="product.noneAvailable">{{product.price | currency}}</h3>
         <!--angular filters use piping |-->
-        <h3>{{product.type}}</h2>
-        <p>{{product.description}}</p>
+        <h3>{{product.type}}</h3>
+        <p ng-hide="product.noneAvailable">{{product.description}}</p>
+        <!--<p>Available:  {{this.product.available - this.product.booked}}</p>-->
+        <p ng-hide="product.noneAvailable">Available now:  {{this.product.howmany()}}</p>
+        
+        <p ng-show="product.noneAvailable">Sorry none available :(</p>
         <p><img ng-src="{{product.images}}"/></p>
-        <button ng-show="product.canRent">Rent Car</button>
+       <div ng-controller="myCtrl">
+        <button ng-click="rentCar()">Rent Car</button>
+        </div>
+        <!--use ng-submit=?
         <!--only show if value of the expression is true-->
-    </div>
+   </div>
    
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script> 
+    
 </body>
 </html>
