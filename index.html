@@ -23,11 +23,11 @@
 			<!--scope of controller only inside div-->
 		<div class="car">	
 
-        <h2 ng-hide="product.noneAvailable">{{product.name}}</h2>
-        <h3 ng-hide="product.noneAvailable">{{product.price | currency}}</h3>
+        <h2 ng-hide="product.noneAvailable">Car's name: {{product.name}}</h2>
+        <h3 ng-hide="product.noneAvailable">Price per Day: {{product.price | currency}}</h3>
           <!--angular filters use piping |-->
-        <h3>{{product.type}}</h3>
-        <p ng-hide="product.noneAvailable">{{product.description}}</p>
+        <h3>Car type: {{product.type}}</h3>
+        <p ng-hide="product.noneAvailable">Car description: {{product.description}}</p>
        
         <p ng-hide="product.noneAvailable">Available now: {{this.product.howmany()}}</p>
         
