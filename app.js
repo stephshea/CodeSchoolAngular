@@ -1,3 +1,4 @@
+/*  global angular */
 (function() {
 	//wrap entire application in a closure
 	var app = angular.module('rentals', []);
@@ -7,6 +8,14 @@
 		this.products = cars;
 		//added multiple cars so must now be products not product
 	});
+	
+// 	app.controller('myCtrl', function() {
+// 		this.rentCar = function(cars) {
+// 			if (cars.available != 0) {
+// 				cars.product.booked++;
+// 			}
+// 		}
+// 	});
 	app.controller('myCtrl', ['$scope', function($scope) {
 		$scope.rentCar = function() {
 			if (this.product.available != 0) {
